@@ -8,12 +8,27 @@
 <script lang="ts">
 import Vue from 'vue';
 import HelloWorld from './components/HelloWorld.vue';
+import store from '@/store/index';
 
 export default Vue.extend({
   name: 'App',
   components: {
     HelloWorld
-  }
+  },
+  methods: {
+    async test() {
+      await store.dispatch('incrWheelsAction', 2)
+      const axles = store.getters.axles
+      console.log('axles value:', axles);
+
+      await store.dispatch('incrWheelsAction', 2)
+      const axlesAndWheels = store.getters.axlesAndWheels
+      console.log('axlesDouble value:', axlesAndWheels.axlesDouble);
+    },
+  },
+  created() {
+    this.test();
+  },
 });
 </script>
 

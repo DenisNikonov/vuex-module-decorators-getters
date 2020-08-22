@@ -47,12 +47,3 @@ const store = new Vuex.Store({
   }
 })
 export default store;
-
-
-async function test() {
-  await store.dispatch('incrWheelsAction', 2)
-  const axles = store.getters.axles
-  console.log(axles);
-}
-
-test();
