@@ -14,9 +14,8 @@ class ParentModule extends VuexModule {
 
   @Action({ rawError: true })
   async incrWheelsAction(payload: number) {
-    const context = this.context
     this.context.commit('incrWheels', payload)
-    const axles = this.context.getters.axles
+    console.log('incrWheelsAction axles value: ', this.axles);
   }
 
   get axles() {
